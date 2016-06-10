@@ -1,7 +1,7 @@
 ## XAP Dockerfile
 
 
-This repository contains **Dockerfile** of [XAP](http://www.gigaspaces.com/xap-real-time-transaction-processing/overview)
+This repository contains **Dockerfile** of [GigaSpaces XAP](http://www.gigaspaces.com/xap-real-time-transaction-processing/overview)
 
 
 ### Installation
