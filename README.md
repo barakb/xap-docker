@@ -12,7 +12,7 @@ This repository contains **Dockerfile** of [XAP](http://www.gigaspaces.com/xap-r
 
 3. cd xap-docker
 
-4. Build an image from Dockerfile: `docker build -t xap/xap:12.0.0 .`)
+4. Build an image from Dockerfile: `docker build -t xap/xap:12.0.0 .`
 
 
 ### Usage
