@@ -17,12 +17,27 @@ This repository contains **Dockerfile** of [XAP](http://www.gigaspaces.com/xap-r
 
 ### Usage
 
-#### Run `XAP` single space instance
+#### Run XAP single space instance
 
     docker run -d xap/xap:12.0.0
 
-#### Run `XAP` partition with a single primary and a single backup
+#### Run XAP partition with a single primary and a single backup
 
     docker run -d xap/xap:12.0.0 -name spaceName -cluster schema=partitioned total_members=1,1 id=1    
     docker run -d xap/xap:12.0.0 -name spaceName -cluster schema=partitioned total_members=1,1 id=1 backup_id=1
+    
+#### More options
+    [-name ...] [-cluster ...] [-properties ...] [-user xxx -password yyy] [-secured true/false]
+    --help                                   : Shows this usage options menu
+    -name [data grid name]                   : Allows to specify the data grid name (by default dataGrid)
+    -cluster [cluster properties]            : Allows to specify cluster parameters
+         schema=partitioned                  : The cluster schema to use
+         total_members=1,1                   : The number of instances and number of backups to use
+         id=1                                : The instance id of this processing unit
+         backup_id=1                         : The backup id of this processing unit
+    -properties [properties-loc]             : Location of context level properties
+    -properties [bean-name] [properties-loc] : Location of properties used applied only for a specified bean
+    -user x -password y                      : Configures a secured processing unit propagated with the supplied user and password
+    -secured true                            : Configures a secured processing unit (implicit when using -user/-password)
+            
 
