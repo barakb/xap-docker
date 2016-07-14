@@ -9,16 +9,17 @@
 FROM java:8
 MAINTAINER Kobi Kisos
 
-ENV XAP_HOME /opt/xap/
-ENV XAP_VERSION 12.0.0
-ENV XAP_BUILD_NUMBER 15792-124
-ENV XAP_MILESTONE m2
 
-RUN mkdir -p $XAP_HOME
-WORKDIR $XAP_HOME
+ENV XAP_VERSION 12.0.0
+ENV XAP_BUILD_NUMBER 16000
+ENV XAP_MILESTONE ga
+ENV XAP_HOME_DIR /opt/xap/
+
+RUN mkdir -p ${XAP_HOME_DIR}
+WORKDIR ${XAP_HOME_DIR}
 
 # Download XAP
-ADD https://gigaspaces-repository-eu.s3.amazonaws.com/com/gigaspaces/xap-open/${XAP_VERSION}-${XAP_BUILD_NUMBER}-${XAP_MILESTONE}/gigaspaces-xap-open-${XAP_VERSION}-${XAP_MILESTONE}-b${XAP_BUILD_NUMBER}.zip ${XAP_HOME}/gigaspaces-xap-open-${XAP_VERSION}-${XAP_MILESTONE}-b${XAP_BUILD_NUMBER}.zip
+ADD https://gigaspaces-repository-eu.s3.amazonaws.com/com/gigaspaces/xap-open/${XAP_VERSION}/${XAP_VERSION}/gigaspaces-xap-open-${XAP_VERSION}-${XAP_MILESTONE}-b${XAP_BUILD_NUMBER}.zip ${XAP_HOME_DIR}/gigaspaces-xap-open-${XAP_VERSION}-${XAP_MILESTONE}-b${XAP_BUILD_NUMBER}.zip
 RUN unzip gigaspaces-xap-open-${XAP_VERSION}-${XAP_MILESTONE}-b${XAP_BUILD_NUMBER}.zip
 
 ENV XAP_NIC_ADDRESS "#local:ip#"
@@ -30,6 +31,7 @@ EXPOSE 9104
 EXPOSE 7102
 EXPOSE 4174
 
+WORKDIR ${XAP_HOME_DIR}/gigaspaces-xap-open-${XAP_VERSION}-${XAP_MILESTONE}-b${XAP_BUILD_NUMBER}
 
 ENTRYPOINT ["./bin/space-instance.sh"]
 CMD ["./bin/space-instance.sh, ""]

@@ -12,24 +12,24 @@ This repository contains **Dockerfile** of [GigaSpaces XAP](http://www.gigaspace
 
 3. cd xap-docker
 
-4. Build an image from Dockerfile: `docker build -t xap/xap:12.0.0 .`
+4. Build an image from Dockerfile: `docker build -t gigaspaces/xap:12.0.0 .`
 
 
 ### Usage
 
 #### Run XAP single space instance
 
-    docker run -d xap/xap:12.0.0
+    docker run -d gigaspaces/xap:12.0.0 -name myDataGrid 
 
 #### Run XAP partition with a single primary and a single backup
 
-    docker run -d xap/xap:12.0.0 -name spaceName -cluster schema=partitioned total_members=1,1 id=1    
-    docker run -d xap/xap:12.0.0 -name spaceName -cluster schema=partitioned total_members=1,1 id=1 backup_id=1
+    docker run -d gigaspaces/xap:12.0.0 -name myDataGrid -cluster schema=partitioned total_members=1,1 id=1    
+    docker run -d gigaspaces/xap:12.0.0 -name myDataGrid -cluster schema=partitioned total_members=1,1 id=1 backup_id=1
     
 #### More options
     [-name ...] [-cluster ...] [-properties ...] [-user xxx -password yyy] [-secured true/false]
     --help                                   : Shows this usage options menu
-    -name [data grid name]                   : Allows to specify the data grid name (by default dataGrid)
+    -name [data grid name]        (required) : Specify the data grid name
     -cluster [cluster properties]            : Allows to specify cluster parameters
          schema=partitioned                  : The cluster schema to use
          total_members=1,1                   : The number of instances and number of backups to use
