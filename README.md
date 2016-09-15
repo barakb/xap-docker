@@ -39,5 +39,9 @@ This repository contains **Dockerfile** of [GigaSpaces XAP](http://www.gigaspace
     -properties [bean-name] [properties-loc] : Location of properties used applied only for a specified bean
     -user x -password y                      : Configures a secured processing unit propagated with the supplied user and password
     -secured true                            : Configures a secured processing unit (implicit when using -user/-password)
-            
+
+![Redo log](http://gigaspaces.github.io/xap-docker/images/redolog.png "Redo Log")
+
+
+
 
