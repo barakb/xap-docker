@@ -6,7 +6,7 @@
 #
 
 
-FROM java:8
+FROM java:9
 MAINTAINER Kobi Kisos
 
 
